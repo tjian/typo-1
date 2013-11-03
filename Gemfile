@@ -19,12 +19,14 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 #  end
 #end
 
+# password nY2qkyw
+
 group :production do
   gem 'pg'
 end
 
 source 'https://rubygems.org'
-ruby "1.9.2"
+ruby "1.9.3"
 
 gem 'thin'
 gem 'rails', '~> 3.0.10'

@@ -237,7 +237,18 @@ class Admin::ContentController < Admin::BaseController
 
   end
 
+
   def setup_resources
     @resources = Resource.by_created_at
   end
+
+  def merge
+    #@article.merge_with(:target_article_id)
+    redirect_to :action => 'new'
+  end
+
+  def abc
+    redirect_to :action => 'index'
+  end
+
 end
