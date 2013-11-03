@@ -27,6 +27,11 @@ class Admin::ContentController < Admin::BaseController
     new_or_edit
   end
 
+  def merge
+    #@article.merge_with(:target_article_id)
+    redirect_to :action => 'new'
+  end
+
   def edit
     @article = Article.find(params[:id])
     unless @article.access_by? current_user
@@ -240,15 +245,6 @@ class Admin::ContentController < Admin::BaseController
 
   def setup_resources
     @resources = Resource.by_created_at
-  end
-
-  def merge
-    #@article.merge_with(:target_article_id)
-    redirect_to :action => 'new'
-  end
-
-  def abc
-    redirect_to :action => 'index'
   end
 
 end
