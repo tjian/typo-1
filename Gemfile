@@ -19,7 +19,7 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 #  end
 #end
 
-# password nY2qkyw
+# password 3V0VoI5
 
 group :production do
   gem 'pg'

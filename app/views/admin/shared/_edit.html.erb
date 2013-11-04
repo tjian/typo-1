@@ -9,7 +9,7 @@
 		<h3><%= _("Merge Articles")%></h3>
 		<label for="target_article_id"><%= _("Article ID")%></label>
 		<div class='input'>
-			<%= text_field_tag :target_article, :target_article_id, :value => ''%>
+			<%= text_field_tag :merge_with %>
 			<%= submit_tag(_("Merge"), {:class => 'btn'}) %>
 		</div>
 	<% end %>
