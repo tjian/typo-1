@@ -416,6 +416,16 @@ class Article < Content
     user.admin? || user_id == user.id
   end
 
+  def merge_with(target_article)
+    self.body += target_article.body
+    Feedback.find_all_by_article_id(target_article.id).each do |comment|
+      comment.article_id = self.id
+      comment.save
+    end
+    Article.destroy(target_article.id)
+    self.save
+  end
+
   protected
 
   def set_published_at
@@ -467,14 +477,6 @@ class Article < Content
     return from..to
   end
 
-  def merge_with(target_article)
-    self.body += target_article.body
-    Feedback.find_all_by_article_id(target_article.id).each do |comment|
-      comment.article_id = self.id
-      comment.save
-    end
-    Article.destroy(target_article.id)
-    self.save
-  end
+
 
 end
